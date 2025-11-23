@@ -3,75 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recursos para Economistas</title>
+    <title>Repositorio de Economía</title>
     <style>
         :root {
-            --bg-color: #f4f4f9;
+            --bg-color: #f8f9fa;
             --card-bg: #ffffff;
-            --text-color: #333;
-            --text-secondary: #666;
-            --accent-color: #2563eb;
-            --border-color: #ddd;
+            --text-color: #2c3e50;
+            --text-secondary: #6c757d;
+            --accent-color: #2c3e50;
+            --link-color: #0366d6;
+            --border-color: #e1e4e8;
+            --tag-bg: #f1f8ff;
+            --tag-text: #0366d6;
         }
 
         [data-theme="dark"] {
-            --bg-color: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-color: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent-color: #60a5fa;
-            --border-color: #404040;
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-color: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-color: #58a6ff;
+            --link-color: #58a6ff;
+            --border-color: #30363d;
+            --tag-bg: #1f2937;
+            --tag-text: #58a6ff;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
             padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.6;
+            transition: all 0.3s ease;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* Header Styles */
         header {
             text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
             margin-bottom: 40px;
-            position: relative;
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            color: var(--accent-color);
+            color: var(--text-color);
         }
 
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        /* Controles (Buscador + Botón) */
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
         }
 
         #searchBar {
-            padding: 12px 20px;
             width: 100%;
-            max-width: 500px;
+            padding: 15px 25px;
+            border-radius: 30px;
             border: 2px solid var(--border-color);
-            border-radius: 25px;
-            font-size: 1rem;
             background-color: var(--card-bg);
             color: var(--text-color);
+            font-size: 1.1rem;
             outline: none;
             transition: border-color 0.3s;
         }
@@ -80,317 +80,265 @@
             border-color: var(--accent-color);
         }
 
-        .theme-toggle {
-            background: var(--card-bg);
+        .btn-theme {
+            background: none;
             border: 2px solid var(--border-color);
             color: var(--text-color);
-            padding: 10px 15px;
-            border-radius: 25px;
+            padding: 8px 16px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.9rem;
+            margin-top: 10px;
         }
 
-        /* Grid de Enlaces */
-        .category-section {
-            margin-bottom: 40px;
-        }
-
+        /* Grid Layout */
         .category-title {
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 1.5rem;
+            margin: 40px 0 20px 0;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
         }
 
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
 
-        .link-card {
+        .card {
             background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
             border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
 
-        .link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             border-color: var(--accent-color);
         }
 
-        .link-card a {
+        .card a {
             text-decoration: none;
-            color: var(--accent-color);
-            font-weight: bold;
+            color: var(--link-color);
+            font-weight: 600;
             font-size: 1.1rem;
             margin-bottom: 8px;
             word-break: break-word;
         }
 
-        .link-card p {
-            margin: 0;
+        .card p {
             font-size: 0.9rem;
             color: var(--text-secondary);
-            line-height: 1.4;
+            margin: 0 0 10px 0;
+            flex-grow: 1;
         }
 
         .tag {
             display: inline-block;
             font-size: 0.75rem;
-            background-color: var(--bg-color);
-            padding: 2px 8px;
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 4px 8px;
             border-radius: 4px;
-            margin-top: 10px;
             align-self: flex-start;
-            color: var(--text-secondary);
-            border: 1px solid var(--border-color);
         }
 
+        .hidden { display: none !important; }
+        
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
-        
-        /* Ocultar elementos al filtrar */
-        .hidden { display: none !important; }
-
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>Resources for Economists</h1>
-        <div class="subtitle">Curated links for research, data analysis, and finance.</div>
-        
-        <div class="controls">
-            <input type="text" id="searchBar" placeholder="🔍 Buscar recurso (ej: Python, INEI, Macro)...">
-            <button class="theme-toggle" onclick="toggleTheme()">🌓 Cambiar Tema</button>
+        <h1>Recursos Económicos</h1>
+        <p>Base de datos recopilada para investigación y finanzas</p>
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="🔍 Buscar enlace (ej. BCRP, Python, Papers)...">
         </div>
+        <button class="btn-theme" onclick="toggleTheme()">🌓 Cambiar Modo Oscuro/Claro</button>
     </header>
 
     <div class="category-section">
-        <h2 class="category-title">🇵🇪 Datos Perú</h2>
+        <h2 class="category-title">🇵🇪 Perú: Datos y Entidades</h2>
         <div class="links-grid">
-            <div class="link-card">
-                <a href="https://www.bcrp.gob.pe/" target="_blank">BCRP - Banco Central</a>
-                <p>Banco Central de Reserva del Perú. Estadísticas monetarias y reportes de inflación.</p>
-                <span class="tag">Oficial</span>
-            </div>
-            <div class="link-card">
-                <a href="https://estadisticas.bcrp.gob.pe/estadisticas/series/" target="_blank">BCRP Series Estadísticas</a>
-                <p>Consulta de series económicas y base de datos del BCRP.</p>
-                <span class="tag">Data</span>
-            </div>
-             <div class="link-card">
-                <a href="https://www.sbs.gob.pe/" target="_blank">SBS Perú</a>
-                <p>Superintendencia de Banca, Seguros y AFP. Datos del sistema financiero.</p>
-                <span class="tag">Finanzas</span>
-            </div>
-            <div class="link-card">
-                <a href="http://iinei.inei.gob.pe/microdatos" target="_blank">INEI Microdatos</a>
-                <p>Base de datos de encuestas nacionales (ENAHO, ENDES, etc).</p>
-                <span class="tag">Microdata</span>
-            </div>
-            <div class="link-card">
-                <a href="https://observatorio.ceplan.gob.pe/inicio" target="_blank">CEPLAN Observatorio</a>
-                <p>Observatorio de prospectiva y planificación estratégica.</p>
-                <span class="tag">Planificación</span>
-            </div>
-             <div class="link-card">
-                <a href="https://consultasenlinea.mincetur.gob.pe/" target="_blank">MINCETUR Data</a>
-                <p>Estadísticas de comercio exterior y turismo.</p>
-                <span class="tag">Comercio</span>
-            </div>
+            <div class="card"><a href="https://www.bcrp.gob.pe/" target="_blank">BCRP</a><p>Banco Central de Reserva del Perú.</p><span class="tag">Oficial</span></div>
+            <div class="card"><a href="https://estadisticas.bcrp.gob.pe/estadisticas/series/" target="_blank">BCRP Series</a><p>Estadísticas monetarias e históricas.</p><span class="tag">Data</span></div>
+            <div class="card"><a href="https://biblioteca.bcrp.gob.pe/discovery/collectionDiscovery?vid=51BCDRDP_INST:51BCDRDP2&lang=es" target="_blank">Biblioteca BCRP</a><p>Repositorio bibliográfico del Banco Central.</p><span class="tag">Libros/Papers</span></div>
+            <div class="card"><a href="https://www.sbs.gob.pe/" target="_blank">SBS</a><p>Superintendencia de Banca, Seguros y AFP.</p><span class="tag">Regulador</span></div>
+            <div class="card"><a href="http://iinei.inei.gob.pe/microdatos/" target="_blank">INEI Microdatos</a><p>Encuestas nacionales (ENAHO, ENDES).</p><span class="tag">Microdata</span></div>
+            <div class="card"><a href="https://systems.inei.gob.pe/SIRTOD/app/consulta" target="_blank">INEI SIRTOD</a><p>Sistema de Información Regional para la Toma de Decisiones.</p><span class="tag">Regional</span></div>
+            <div class="card"><a href="https://observatorio.ceplan.gob.pe/inicio" target="_blank">CEPLAN</a><p>Observatorio de prospectiva estratégica.</p><span class="tag">Planeamiento</span></div>
+            <div class="card"><a href="https://consultasenlinea.mincetur.gob.pe/Rep_Comer_Bilat/Comercio" target="_blank">MINCETUR</a><p>Reportes de Comercio Bilateral y Acuerdos.</p><span class="tag">Comercio</span></div>
+            <div class="card"><a href="https://datospunkuyachay.pe/" target="_blank">Datos Punku Yachay</a><p>Base de Datos FCE - Facultad de Ciencias Económicas.</p><span class="tag">Academia</span></div>
+            <div class="card"><a href="https://departamento-economia.pucp.edu.pe/investigacion/documentos" target="_blank">PUCP Economía</a><p>Documentos de trabajo Departamento de Economía.</p><span class="tag">Papers</span></div>
+            <div class="card"><a href="#">Repositorio ALICIA</a><p>Acceso a Literatura Científica para la Innovación (Perú).</p><span class="tag">Tesis/Papers</span></div>
+            <div class="card"><a href="#">Repositorio CONCYTEC</a><p>Consejo Nacional de Ciencia y Tecnología.</p><span class="tag">Ciencia</span></div>
         </div>
     </div>
 
     <div class="category-section">
-        <h2 class="category-title">🌍 Bases de Datos Globales</h2>
+        <h2 class="category-title">🌍 Macroeconomía y Datos Globales</h2>
         <div class="links-grid">
-            <div class="link-card">
-                <a href="https://fred.stlouisfed.org/" target="_blank">FRED St. Louis Fed</a>
-                <p>La base de datos económica más popular. Miles de series temporales globales.</p>
-                <span class="tag">Macro</span>
-            </div>
-            <div class="link-card">
-                <a href="https://data.worldbank.org/" target="_blank">World Bank Open Data</a>
-                <p>Indicadores de desarrollo mundial (WDI) y datos abiertos.</p>
-                <span class="tag">Desarrollo</span>
-            </div>
-            <div class="link-card">
-                <a href="https://www.imf.org/en/Data" target="_blank">IMF Data</a>
-                <p>Datos del Fondo Monetario Internacional (WEO, IFS).</p>
-                <span class="tag">Macro</span>
-            </div>
-            <div class="link-card">
-                <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank">Penn World Table (PWT)</a>
-                <p>Datos estandarizados de cuentas nacionales para comparaciones internacionales.</p>
-                <span class="tag">Investigación</span>
-            </div>
-            <div class="link-card">
-                <a href="https://ourworldindata.org/" target="_blank">Our World in Data</a>
-                <p>Investigación y datos sobre los grandes problemas mundiales.</p>
-                <span class="tag">Visualización</span>
-            </div>
-            <div class="link-card">
-                <a href="https://www.oecd.org/en/data.html" target="_blank">OECD Data</a>
-                <p>Estadísticas de los países miembros de la OCDE.</p>
-                <span class="tag">Policy</span>
-            </div>
-             <div class="link-card">
-                <a href="https://atlas.cid.harvard.edu/" target="_blank">Atlas of Economic Complexity</a>
-                <p>Harvard CID. Visualización de flujos comerciales y complejidad.</p>
-                <span class="tag">Comercio</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="category-section">
-        <h2 class="category-title">💻 Python, R & Econometría</h2>
-        <div class="links-grid">
-            <div class="link-card">
-                <a href="https://quantecon.org/" target="_blank">QuantEcon</a>
-                <p>Modelado económico con Python y Julia. Referencia obligatoria.</p>
-                <span class="tag">Coding</span>
-            </div>
-             <div class="link-card">
-                <a href="https://otexts.com/fpp3/" target="_blank">Forecasting (Hyndman)</a>
-                <p>Libro definitivo sobre series de tiempo y pronósticos (R/Python).</p>
-                <span class="tag">Libro</span>
-            </div>
-            <div class="link-card">
-                <a href="https://github.com/weijie-chen/Econometrics-With-Python" target="_blank">Econometrics with Python</a>
-                <p>Repositorio GitHub con ejemplos de econometría.</p>
-                <span class="tag">GitHub</span>
-            </div>
-            <div class="link-card">
-                <a href="https://pandas-datareader.readthedocs.io/" target="_blank">Pandas Datareader</a>
-                <p>Librería de Python para extraer datos financieros/económicos directo a código.</p>
-                <span class="tag">Python</span>
-            </div>
-            <div class="link-card">
-                <a href="https://github.com/dcajasn/Riskfolio-Lib" target="_blank">Riskfolio-Lib</a>
-                <p>Librería para optimización de portafolios en Python.</p>
-                <span class="tag">Finanzas</span>
-            </div>
-            <div class="link-card">
-                <a href="https://github.com/mjavadshamsi/web-scraping-economists" target="_blank">Web Scraping for Economists</a>
-                <p>Guía y códigos para extraer datos de la web.</p>
-                <span class="tag">Scraping</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="category-section">
-        <h2 class="category-title">📚 Investigación y Papers</h2>
-        <div class="links-grid">
-            <div class="link-card">
-                <a href="https://www.nber.org/" target="_blank">NBER</a>
-                <p>National Bureau of Economic Research. Working papers de alta calidad.</p>
-                <span class="tag">Papers</span>
-            </div>
-            <div class="link-card">
-                <a href="http://repec.org/" target="_blank">RePEc</a>
-                <p>Research Papers in Economics. Base de datos bibliográfica masiva.</p>
-                <span class="tag">Repositorio</span>
-            </div>
-            <div class="link-card">
-                <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
-                <p>Buscador de literatura académica.</p>
-                <span class="tag">Buscador</span>
-            </div>
-            <div class="link-card">
-                <a href="https://www.ssrn.com/" target="_blank">SSRN</a>
-                <p>Social Science Research Network. Acceso temprano a investigación.</p>
-                <span class="tag">Papers</span>
-            </div>
-            <div class="link-card">
-                <a href="https://economics.mit.edu/research/publications" target="_blank">MIT Economics</a>
-                <p>Publicaciones e investigación del departamento de economía del MIT.</p>
-                <span class="tag">Top Tier</span>
-            </div>
+            <div class="card"><a href="https://fred.stlouisfed.org/" target="_blank">FRED St. Louis</a><p>Federal Reserve Economic Data. La base más completa.</p><span class="tag">USA/Global</span></div>
+            <div class="card"><a href="https://data.worldbank.org/" target="_blank">Banco Mundial Data</a><p>Open Data y World Development Indicators.</p><span class="tag">Desarrollo</span></div>
+            <div class="card"><a href="https://www.imf.org/en/Data" target="_blank">FMI Data</a><p>Datos del Fondo Monetario Internacional (WEO).</p><span class="tag">Macro</span></div>
+            <div class="card"><a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank">Penn World Table (PWT)</a><p>Datos comparativos de productividad y crecimiento (Groningen).</p><span class="tag">Productividad</span></div>
+            <div class="card"><a href="https://ourworldindata.org/" target="_blank">Our World in Data</a><p>Investigación visual sobre problemas globales.</p><span class="tag">Visualización</span></div>
+            <div class="card"><a href="https://www.oecd.org/en/data.html" target="_blank">OECD Data</a><p>Estadísticas de países desarrollados.</p><span class="tag">Policy</span></div>
+            <div class="card"><a href="https://www.bea.gov/" target="_blank">BEA (USA)</a><p>Bureau of Economic Analysis (PIB EEUU).</p><span class="tag">USA</span></div>
+            <div class="card"><a href="https://www.bls.gov/data/" target="_blank">BLS (USA)</a><p>Bureau of Labor Statistics (Empleo/Inflación EEUU).</p><span class="tag">Laboral</span></div>
+            <div class="card"><a href="https://www.federalreserve.gov/data.htm" target="_blank">Federal Reserve Board</a><p>Datos oficiales de la FED.</p><span class="tag">Monetario</span></div>
+            <div class="card"><a href="https://www.census.gov/en.html" target="_blank">US Census Bureau</a><p>Data de censos e investigación estadística.</p><span class="tag">Demografía</span></div>
+            <div class="card"><a href="https://sdw.ecb.europa.eu/" target="_blank">ECB SDW</a><p>European Central Bank Statistical Data Warehouse.</p><span class="tag">Europa</span></div>
+            <div class="card"><a href="https://www.ons.gov.uk/" target="_blank">ONS (UK)</a><p>Office of National Statistics UK.</p><span class="tag">Reino Unido</span></div>
+            <div class="card"><a href="https://eurostat.ec.europa.eu/" target="_blank">EuroStat</a><p>Estadísticas de la Unión Europea.</p><span class="tag">Europa</span></div>
+            <div class="card"><a href="https://www.fao.org/statistics/en" target="_blank">FAO Stats</a><p>Datos de alimentación y agricultura.</p><span class="tag">Agricultura</span></div>
+            <div class="card"><a href="https://atlas.cid.harvard.edu/" target="_blank">Economic Complexity</a><p>Atlas de Complejidad Económica (Harvard).</p><span class="tag">Comercio</span></div>
+            <div class="card"><a href="https://www.intracen.org/resources/data-and-analysis/research-and-data" target="_blank">ITC Trade Data</a><p>International Trade Centre - Data de comercio.</p><span class="tag">Comercio</span></div>
+            <div class="card"><a href="https://datosmacro.expansion.com/" target="_blank">DatosMacro</a><p>Comparativas rápidas e ideas de gráficos.</p><span class="tag">Resumen</span></div>
+            <div class="card"><a href="https://www.econdb.com/home" target="_blank">EconDB</a><p>Base de datos económicos, Macro, Trade, Precios.</p><span class="tag">Agregador</span></div>
+            <div class="card"><a href="https://www.cconstats.com/" target="_blank">EconStats</a><p>Estadísticas económicas diversas.</p><span class="tag">Agregador</span></div>
+             <div class="card"><a href="https://www.fraserinstitute.org/" target="_blank">Fraser Institute</a><p>Economic Freedom of the World Report.</p><span class="tag">Libertad Económica</span></div>
         </div>
     </div>
 
     <div class="category-section">
         <h2 class="category-title">📈 Finanzas y Mercados</h2>
         <div class="links-grid">
-            <div class="link-card">
-                <a href="https://tradingeconomics.com/" target="_blank">Trading Economics</a>
-                <p>Datos de mercado en vivo, indicadores macro y calendarios.</p>
-                <span class="tag">Mercados</span>
-            </div>
-            <div class="link-card">
-                <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html" target="_blank">Fama-French Data</a>
-                <p>Librería de datos para modelos de valoración de activos (Factores).</p>
-                <span class="tag">Asset Pricing</span>
-            </div>
-            <div class="link-card">
-                <a href="https://vlab.stern.nyu.edu/" target="_blank">V-Lab (NYU)</a>
-                <p>Laboratorio de volatilidad. Análisis de riesgos financieros en tiempo real.</p>
-                <span class="tag">Riesgo</span>
-            </div>
-            <div class="link-card">
-                <a href="https://www.world-exchanges.org/" target="_blank">World Federation of Exchanges</a>
-                <p>Estadísticas de las bolsas de valores del mundo.</p>
-                <span class="tag">Bolsa</span>
-            </div>
+            <div class="card"><a href="https://tradingeconomics.com/" target="_blank">Trading Economics</a><p>Datos de mercado, indicadores macro y noticias.</p><span class="tag">Mercados</span></div>
+             <div class="card"><a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html" target="_blank">Kenneth French Data</a><p>Librería de Factores Fama-French.</p><span class="tag">Asset Pricing</span></div>
+            <div class="card"><a href="https://vlab.stern.nyu.edu/" target="_blank">V-Lab NYU</a><p>Laboratorio de Volatilidad (Engle).</p><span class="tag">Riesgos</span></div>
+            <div class="card"><a href="https://www.sec.gov/data-research/data-visualizations" target="_blank">SEC Data</a><p>Visualizaciones y datos del regulador de valores de EEUU.</p><span class="tag">Regulador</span></div>
+            <div class="card"><a href="https://www.world-exchanges.org/" target="_blank">WFE</a><p>World Federation of Exchanges.</p><span class="tag">Bolsas</span></div>
+            <div class="card"><a href="https://www.msci.com/indexes" target="_blank">MSCI Indexes</a><p>Información de índices globales.</p><span class="tag">Índices</span></div>
+            <div class="card"><a href="https://www.spglobal.com/en" target="_blank">S&P Global</a><p>Información de índices bursátiles y calificaciones.</p><span class="tag">Índices</span></div>
+            <div class="card"><a href="https://developers.lseg.com/en" target="_blank">LSEG Developers</a><p>London Stock Exchange Group - APIs y modelos.</p><span class="tag">Quant</span></div>
+            <div class="card"><a href="https://github.com/orgs/LSEG-API-Samples/repositories?type=all" target="_blank">LSEG GitHub</a><p>Repositorios de Jonathan Legrand (LSEG).</p><span class="tag">Código</span></div>
+            <div class="card"><a href="https://inomics.com/es/blog/top-10-journals-of-finance-1033034" target="_blank">Inomics Finance</a><p>Top Journals de Finanzas a revisar.</p><span class="tag">Carrera</span></div>
         </div>
     </div>
 
     <div class="category-section">
-        <h2 class="category-title">🏛️ Bancos Centrales & US Data</h2>
+        <h2 class="category-title">💻 Python, R y Modelos</h2>
         <div class="links-grid">
-            <div class="link-card">
-                <a href="https://www.federalreserve.gov/data.htm" target="_blank">Federal Reserve Board</a>
-                <p>Datos oficiales de la FED.</p>
-                <span class="tag">USA</span>
-            </div>
-            <div class="link-card">
-                <a href="https://www.bea.gov/" target="_blank">BEA</a>
-                <p>Bureau of Economic Analysis. Datos de PIB de EE.UU.</p>
-                <span class="tag">USA</span>
-            </div>
-            <div class="link-card">
-                <a href="https://www.bls.gov/" target="_blank">BLS</a>
-                <p>Bureau of Labor Statistics. Datos de empleo e inflación EE.UU.</p>
-                <span class="tag">Laboral</span>
-            </div>
-            <div class="link-card">
-                <a href="https://sdw.ecb.europa.eu/" target="_blank">ECB Statistical Warehouse</a>
-                <p>Datos del Banco Central Europeo.</p>
-                <span class="tag">Europa</span>
-            </div>
+            <div class="card"><a href="https://quantecon.org/" target="_blank">QuantEcon</a><p>Código open source para modelado económico (Python/Julia).</p><span class="tag">Esencial</span></div>
+            <div class="card"><a href="https://otexts.com/fpp3/" target="_blank">Forecasting (Hyndman)</a><p>Libro online sobre predicción y series de tiempo.</p><span class="tag">Libro</span></div>
+            <div class="card"><a href="https://pandas-datareader.readthedocs.io/" target="_blank">Pandas Datareader</a><p>Paquete para extracción remota de datos financieros.</p><span class="tag">Python Library</span></div>
+            <div class="card"><a href="https://business-science.github.io/pytimetk/" target="_blank">PyTimeTK</a><p>Time series analysis library.</p><span class="tag">Python Library</span></div>
+            <div class="card"><a href="https://github.com/dcajasn/Riskfolio-Lib" target="_blank">Riskfolio-Lib</a><p>Optimización de portafolios (Dany Cajas).</p><span class="tag">Portfolio</span></div>
+            <div class="card"><a href="https://github.com/weijie-chen/Econometrics-With-Python" target="_blank">Econometrics w/ Python</a><p>Repositorio de ejemplos econométricos.</p><span class="tag">GitHub</span></div>
+            <div class="card"><a href="https://github.com/Alalalalaki/Guide2EconRA" target="_blank">Guide to Econ RA</a><p>Guía para asistentes de investigación económica.</p><span class="tag">Guía</span></div>
+            <div class="card"><a href="https://github.com/antontarasenko/awesome-economics" target="_blank">Awesome Economics</a><p>Lista curada de recursos para economistas.</p><span class="tag">Recopilación</span></div>
+            <div class="card"><a href="https://github.com/erykml/Python-for-Finance-Cookbook-2E" target="_blank">Python for Finance</a><p>Repositorio del libro 'Cookbook 2E'.</p><span class="tag">Finanzas</span></div>
+            <div class="card"><a href="https://github.com/jpmorganchase/python-training" target="_blank">JPMorgan Python</a><p>Material de entrenamiento en Python de JP Morgan.</p><span class="tag">Training</span></div>
+            <div class="card"><a href="https://macroeconomics.github.io/IntroCGE.html" target="_blank">Intro CGE</a><p>Introducción a Modelos de Equilibrio General Computable.</p><span class="tag">Modelos</span></div>
+            <div class="card"><a href="https://www.gtap.agecon.purdue.edu/models/current.asp" target="_blank">GTAP Models</a><p>Modelo de equilibrio general global (Purdue).</p><span class="tag">CGE</span></div>
+             <div class="card"><a href="https://github.com/mjavadshamsi/web-scraping-economists/" target="_blank">Web Scraping</a><p>Guía de scraping para economistas.</p><span class="tag">Scraping</span></div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h2 class="category-title">📚 Investigación y Academia</h2>
+        <div class="links-grid">
+            <div class="card"><a href="https://www.nber.org/" target="_blank">NBER</a><p>National Bureau of Economic Research. Papers influyentes.</p><span class="tag">Top</span></div>
+            <div class="card"><a href="http://repec.org/" target="_blank">RePEc</a><p>Research Papers in Economics. Repositorio masivo.</p><span class="tag">Base de Datos</span></div>
+            <div class="card"><a href="https://scholar.google.com/" target="_blank">Google Scholar</a><p>Buscador académico general.</p><span class="tag">Buscador</span></div>
+            <div class="card"><a href="https://www.ssrn.com/" target="_blank">SSRN</a><p>Papers de ciencias sociales y economía financiera.</p><span class="tag">Pre-prints</span></div>
+            <div class="card"><a href="https://economics.mit.edu/research/publications" target="_blank">MIT Economics</a><p>Publicaciones de investigación del MIT.</p><span class="tag">Institucional</span></div>
+            <div class="card"><a href="https://economics.stanford.edu/research/publications" target="_blank">Stanford Economics</a><p>Publicaciones de Stanford.</p><span class="tag">Institucional</span></div>
+            <div class="card"><a href="https://www.aeaweb.org/econlit/search-hints" target="_blank">EconLit Hints</a><p>Consejos de búsqueda para EconLit.</p><span class="tag">Tips</span></div>
+            <div class="card"><a href="https://arxiv.org/" target="_blank">ArXiv</a><p>Pre-prints de física, matemáticas y economía cuantitativa.</p><span class="tag">Open Access</span></div>
+            <div class="card"><a href="https://sci-hub.se/" target="_blank">Sci-Hub</a><p>Acceso a artículos académicos (Referencia).</p><span class="tag">Repositorio</span></div>
+            <div class="card"><a href="https://annas-archive.org/" target="_blank">Anna's Archive</a><p>Buscador de libros y papers.</p><span class="tag">Libros</span></div>
+            <div class="card"><a href="http://qed.econ.queensu.ca/jae/" target="_blank">J. Applied Econometrics</a><p>Data y código de la revista JAE.</p><span class="tag">Journal</span></div>
+             <div class="card"><a href="https://rss.onlinelibrary.wiley.com/hub/datasets" target="_blank">Royal Statistical Soc.</a><p>Datasets de la RSS (Wiley).</p><span class="tag">Datasets</span></div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h2 class="category-title">👨‍🏫 Blogs y Profesores</h2>
+        <div class="links-grid">
+            <div class="card"><a href="https://joshuachan.org/code.html" target="_blank">Joshua Chan</a><p>Código de econometría bayesiana.</p><span class="tag">Bayesiana</span></div>
+            <div class="card"><a href="https://sites.google.com/site/garykoop/home?authuser=0" target="_blank">Gary Koop</a><p>Recursos de econometría.</p><span class="tag">Econometría</span></div>
+            <div class="card"><a href="https://sites.google.com/site/dimitriskorobilis/" target="_blank">Dimitris Korobilis</a><p>Macroeconometría y métodos numéricos.</p><span class="tag">Macro</span></div>
+            <div class="card"><a href="https://paulromer.net/" target="_blank">Paul Romer</a><p>Blog del premio Nobel Paul Romer.</p><span class="tag">Crecimiento</span></div>
+            <div class="card"><a href="https://sites.google.com/site/lkilian2019/" target="_blank">Lutz Kilian</a><p>Libro y recursos sobre series de tiempo y energía.</p><span class="tag">Energía</span></div>
+            <div class="card"><a href="https://sites.google.com/view/makotonakajima/home" target="_blank">Makoto Nakajima</a><p>Macroeconomía heterogénea.</p><span class="tag">Macro</span></div>
+            <div class="card"><a href="#" target="_blank">César Martinelli</a><p>Blog y Research.</p><span class="tag">Teoría</span></div>
+            <div class="card"><a href="https://sites.google.com/view/ciroeduardobazannavarro/" target="_blank">Ciro Bazán Navarro</a><p>Notas de clase y slides.</p><span class="tag">Docencia</span></div>
+        </div>
+    </div>
+    
+    <div class="category-section">
+        <h2 class="category-title">📊 Microdatos y Encuestas</h2>
+        <div class="links-grid">
+            <div class="card"><a href="https://www.atusdata.org/atus/" target="_blank">ATUS-X</a><p>American Time Use Survey Data.</p><span class="tag">Tiempo</span></div>
+            <div class="card"><a href="https://gssdataexplorer.norc.org/trends" target="_blank">GSS Data Explorer</a><p>General Social Survey (Chicago).</p><span class="tag">Social</span></div>
+            <div class="card"><a href="https://dhsprogram.com/data/" target="_blank">DHS Program</a><p>Demographic and Health Surveys.</p><span class="tag">Salud</span></div>
+             <div class="card"><a href="https://dataverse.nl/" target="_blank">Dataverse NL</a><p>Datasets mundiales de investigación.</p><span class="tag">Repositorio</span></div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h2 class="category-title">🕸️ Práctica Data Scraping</h2>
+        <div class="links-grid">
+            <div class="card"><a href="https://www.boxofficemojo.com/" target="_blank">Box Office Mojo</a><p>Data de taquilla de cine (Ideal para scraping).</p><span class="tag">Cine</span></div>
+            <div class="card"><a href="https://www.the-numbers.com/" target="_blank">The Numbers</a><p>Datos financieros de la industria del cine.</p><span class="tag">Cine</span></div>
+            <div class="card"><a href="https://www.basketball-reference.com/" target="_blank">Basketball Ref</a><p>Estadísticas completas de la NBA.</p><span class="tag">Deportes</span></div>
+            <div class="card"><a href="https://www.baseball-reference.com/" target="_blank">Baseball Ref</a><p>Estadísticas de la MLB.</p><span class="tag">Deportes</span></div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h2 class="category-title">📂 Otros / Educación / Varios</h2>
+        <div class="links-grid">
+            <div class="card"><a href="https://www.coursera.org/" target="_blank">Coursera ML</a><p>Machine Learning Specialization.</p><span class="tag">Cursos</span></div>
+            <div class="card"><a href="https://www.youtube.com/@NEDLeducation/playlists" target="_blank">NEDL Education</a><p>Canal de Economía, Finanzas y Python.</p><span class="tag">YouTube</span></div>
+            <div class="card"><a href="https://drive.google.com/drive/folders/1sP40IW0p0w5IETCgo464uhDFfdyR6rh7" target="_blank">Material NEDL</a><p>Drive con material del canal.</p><span class="tag">Recursos</span></div>
+            <div class="card"><a href="https://www.weforum.org/" target="_blank">WEF</a><p>World Economic Forum - Noticias y reportes.</p><span class="tag">Noticias</span></div>
+            <div class="card"><a href="https://www.christenseninstitute.org/" target="_blank">Christensen Inst.</a><p>Teoría de la innovación y negocios.</p><span class="tag">Negocios</span></div>
+            <div class="card"><a href="https://portfoliooptimizationbook.com/" target="_blank">Portfolio Opt. Book</a><p>Libro sobre optimización de carteras.</p><span class="tag">Libro</span></div>
+            <div class="card"><a href="https://pyoflife.com/" target="_blank">PyOfLife</a><p>Recursos de Python.</p><span class="tag">Blog</span></div>
+            <div class="card"><a href="https://data.gov/" target="_blank">Data.gov</a><p>Portal de datos abiertos del gobierno de EEUU.</p><span class="tag">Open Data</span></div>
+            <div class="card"><a href="https://library.bu.edu/economics/datasets" target="_blank">Boston Univ. Lib</a><p>Guía de datasets para economía.</p><span class="tag">Meta-guía</span></div>
+             <div class="card"><a href="https://biblioguias.cepal.org/" target="_blank">Biblioguías CEPAL</a><p>Biblioteca de la CEPAL.</p><span class="tag">Latam</span></div>
         </div>
     </div>
 
     <footer>
-        <p>Colección personal de recursos. Actualizado 2025.</p>
+        <p>Recopilación personal de enlaces para Economía y Finanzas.</p>
+        <p>Actualizado con ❤️ y Python.</p>
     </footer>
 </div>
 
 <script>
-    // Lógica del Buscador
     const searchInput = document.getElementById('searchBar');
-    const cards = document.querySelectorAll('.link-card');
+    const cards = document.querySelectorAll('.card');
     const categories = document.querySelectorAll('.category-section');
 
+    // Buscador
     searchInput.addEventListener('input', (e) => {
         const term = e.target.value.toLowerCase();
-
+        
         cards.forEach(card => {
-            const text = card.innerText.toLowerCase();
-            if (text.includes(term)) {
+            const text = card.textContent.toLowerCase();
+            if(text.includes(term)) {
                 card.classList.remove('hidden');
             } else {
                 card.classList.add('hidden');
@@ -399,26 +347,26 @@
 
         // Ocultar categorías vacías
         categories.forEach(cat => {
-            const visibleCards = cat.querySelectorAll('.link-card:not(.hidden)');
-            if (visibleCards.length === 0) {
-                cat.classList.add('hidden');
+            const visibleCards = cat.querySelectorAll('.card:not(.hidden)');
+            if(visibleCards.length === 0) {
+                cat.style.display = 'none';
             } else {
-                cat.classList.remove('hidden');
+                cat.style.display = 'block';
             }
         });
     });
 
-    // Lógica Modo Oscuro
+    // Modo Oscuro
     function toggleTheme() {
         const body = document.body;
-        if (body.getAttribute('data-theme') === 'dark') {
+        if(body.getAttribute('data-theme') === 'dark') {
             body.removeAttribute('data-theme');
         } else {
             body.setAttribute('data-theme', 'dark');
         }
     }
     
-    // Auto-detectar preferencia de sistema
+    // Auto-detectar preferencia
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.setAttribute('data-theme', 'dark');
     }

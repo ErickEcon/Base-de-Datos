@@ -4,8 +4,8 @@
 
 Una colección curada y centralizada de recursos digitales esenciales para investigación económica, análisis de datos y finanzas. Este repositorio aloja una interfaz web rápida y accesible para navegar por bases de datos oficiales, herramientas de programación (Python/R) y literatura académica.
 
-🔗 **[Ver la página en vivo aquí](https://tu-usuario.github.io/nombre-de-tu-repositorio/)**
-*(Nota: Reemplaza este enlace una vez actives GitHub Pages)*
+🔗 **[Ver la página en vivo aquí](https://erickecon.github.io/Base-de-Datos/)**
+
 
 ## 🚀 Características
 

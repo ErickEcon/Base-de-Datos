@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos para Economistas</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --text-secondary: #666;
+            --accent-color: #2563eb;
+            --border-color: #ddd;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #60a5fa;
+            --border-color: #404040;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Controles (Buscador + Botón) */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        #searchBar {
+            padding: 12px 20px;
+            width: 100%;
+            max-width: 500px;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 1rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #searchBar:focus {
+            border-color: var(--accent-color);
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* Grid de Enlaces */
+        .category-section {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border-color: var(--accent-color);
+        }
+
+        .link-card a {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            word-break: break-word;
+        }
+
+        .link-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            background-color: var(--bg-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 10px;
+            align-self: flex-start;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Ocultar elementos al filtrar */
+        .hidden { display: none !important; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Resources for Economists</h1>
+        <div class="subtitle">Curated links for research, data analysis, and finance.</div>
+        
+        <div class="controls">
+            <input type="text" id="searchBar" placeholder="🔍 Buscar recurso (ej: Python, INEI, Macro)...">
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Cambiar Tema</button>
+        </div>
+    </header>
+
+    <div class="category-section">
+        <h2 class="category-title">🇵🇪 Datos Perú</h2>
+        <div class="links-grid">
+            <div class="link-card">
+                <a href="https://www.bcrp.gob.pe/" target="_blank">BCRP - Banco Central</a>
+                <p>Banco Central de Reserva del Perú. Estadísticas monetarias y reportes de inflación.</p>
+                <span class="tag">Oficial</span>
+            </div>
+            <div class="link-card">
+                <a href="https://estadisticas.bcrp.gob.pe/estadisticas/series/" target="_blank">BCRP Series Estadísticas</a>
+                <p>Consulta de series económicas y base de datos del BCRP.</p>
+                <span class="tag">Data</span>
+            </div>
+             <div class="link-card">
+                <a href="https://www.sbs.gob.pe/" target="_blank">SBS Perú</a>
+                <p>Superintendencia de Banca, Seguros y AFP. Datos del sistema financiero.</p>
+                <span class="tag">Finanzas</span>
+            </div>
+            <div class="link-card">
+                <a href="http://iinei.inei.gob.pe/microdatos" target="_blank">INEI Microdatos</a>
+                <p>Base de datos de encuestas nacionales (ENAHO, ENDES, etc).</p>
+                <span class="tag">Microdata</span>
+            </div>
+            <div class="link-card">
+                <a href="https://observatorio.ceplan.gob.pe/inicio" target="_blank">CEPLAN Observatorio</a>
+                <p>Observatorio de prospectiva y planificación estratégica.</p>
+                <span class="tag">Planificación</span>
+            </div>
+             <div class="link-card">
+                <a href="https://consultasenlinea.mincetur.gob.pe/" target="_blank">MINCETUR Data</a>
+                <p>Estadísticas de comercio exterior y turismo.</p>
+                <span class="tag">Comercio</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h2 class="category-title">🌍 Bases de Datos Globales</h2>
+        <div class="links-grid">
+            <div class="link-card">
+                <a href="https://fred.stlouisfed.org/" target="_blank">FRED St. Louis Fed</a>
+                <p>La base de datos económica más popular. Miles de series temporales globales.</p>
+                <span class="tag">Macro</span>
+            </div>
+            <div class="link-card">
+                <a href="https://data.worldbank.org/" target="_blank">World Bank Open Data</a>
+                <p>Indicadores de desarrollo mundial (WDI) y datos abiertos.</p>
+                <span class="tag">Desarrollo</span>
+            </div>
+            <div class="link-card">
+                <a href="https://www.imf.org/en/Data" target="_blank">IMF Data</a>
+                <p>Datos del Fondo Monetario Internacional (WEO, IFS).</p>
+                <span class="tag">Macro</span>
+            </div>
+            <div class="link-card">
+                <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank">Penn World Table (PWT)</a>
+                <p>Datos estandarizados de cuentas nacionales para comparaciones internacionales.</p>
+                <span class="tag">Investigación</span>
+            </div>
+            <div class="link-card">
+                <a href="https://ourworldindata.org/" target="_blank">Our World in Data</a>
+                <p>Investigación y datos sobre los grandes problemas mundiales.</p>
+                <span class="tag">Visualización</span>
+            </div>
+            <div class="link-card">
+                <a href="https://www.oecd.org/en/data.html" target="_blank">OECD Data</a>
+                <p>Estadísticas de los países miembros de la OCDE.</p>
+                <span class="tag">Policy</span>
+            </div>
+             <div class="link-card">
+                <a href="https://atlas.cid.harvard.edu/" target="_blank">Atlas of Economic Complexity</a>
+                <p>Harvard CID. Visualización de flujos comerciales y complejidad.</p>
+                <span class="tag">Comercio</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h2 class="category-title">💻 Python, R & Econometría</h2>
+        <div class="links-grid">
+            <div class="link-card">
+                <a href="https://quantecon.org/" target="_blank">QuantEcon</a>
+                <p>Modelado económico con Python y Julia. Referencia obligatoria.</p>
+                <span class="tag">Coding</span>
+            </div>
+             <div class="link-card">
+                <a href="https://otexts.com/fpp3/" target="_blank">Forecasting (Hyndman)</a>
+                <p>Libro definitivo sobre series de tiempo y pronósticos (R/Python).</p>
+                <span class="tag">Libro</span>
+            </div>
+            <div class="link-card">
+                <a href="https://github.com/weijie-chen/Econometrics-With-Python" target="_blank">Econometrics with Python</a>
+                <p>Repositorio GitHub con ejemplos de econometría.</p>
+                <span class="tag">GitHub</span>
+            </div>
+            <div class="link-card">
+                <a href="https://pandas-datareader.readthedocs.io/" target="_blank">Pandas Datareader</a>
+                <p>Librería de Python para extraer datos financieros/económicos directo a código.</p>
+                <span class="tag">Python</span>
+            </div>
+            <div class="link-card">
+                <a href="https://github.com/dcajasn/Riskfolio-Lib" target="_blank">Riskfolio-Lib</a>
+                <p>Librería para optimización de portafolios en Python.</p>
+                <span class="tag">Finanzas</span>
+            </div>
+            <div class="link-card">
+                <a href="https://github.com/mjavadshamsi/web-scraping-economists" target="_blank">Web Scraping for Economists</a>
+                <p>Guía y códigos para extraer datos de la web.</p>
+                <span class="tag">Scraping</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h2 class="category-title">📚 Investigación y Papers</h2>
+        <div class="links-grid">
+            <div class="link-card">
+                <a href="https://www.nber.org/" target="_blank">NBER</a>
+                <p>National Bureau of Economic Research. Working papers de alta calidad.</p>
+                <span class="tag">Papers</span>
+            </div>
+            <div class="link-card">
+                <a href="http://repec.org/" target="_blank">RePEc</a>
+                <p>Research Papers in Economics. Base de datos bibliográfica masiva.</p>
+                <span class="tag">Repositorio</span>
+            </div>
+            <div class="link-card">
+                <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+                <p>Buscador de literatura académica.</p>
+                <span class="tag">Buscador</span>
+            </div>
+            <div class="link-card">
+                <a href="https://www.ssrn.com/" target="_blank">SSRN</a>
+                <p>Social Science Research Network. Acceso temprano a investigación.</p>
+                <span class="tag">Papers</span>
+            </div>
+            <div class="link-card">
+                <a href="https://economics.mit.edu/research/publications" target="_blank">MIT Economics</a>
+                <p>Publicaciones e investigación del departamento de economía del MIT.</p>
+                <span class="tag">Top Tier</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h2 class="category-title">📈 Finanzas y Mercados</h2>
+        <div class="links-grid">
+            <div class="link-card">
+                <a href="https://tradingeconomics.com/" target="_blank">Trading Economics</a>
+                <p>Datos de mercado en vivo, indicadores macro y calendarios.</p>
+                <span class="tag">Mercados</span>
+            </div>
+            <div class="link-card">
+                <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html" target="_blank">Fama-French Data</a>
+                <p>Librería de datos para modelos de valoración de activos (Factores).</p>
+                <span class="tag">Asset Pricing</span>
+            </div>
+            <div class="link-card">
+                <a href="https://vlab.stern.nyu.edu/" target="_blank">V-Lab (NYU)</a>
+                <p>Laboratorio de volatilidad. Análisis de riesgos financieros en tiempo real.</p>
+                <span class="tag">Riesgo</span>
+            </div>
+            <div class="link-card">
+                <a href="https://www.world-exchanges.org/" target="_blank">World Federation of Exchanges</a>
+                <p>Estadísticas de las bolsas de valores del mundo.</p>
+                <span class="tag">Bolsa</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <h2 class="category-title">🏛️ Bancos Centrales & US Data</h2>
+        <div class="links-grid">
+            <div class="link-card">
+                <a href="https://www.federalreserve.gov/data.htm" target="_blank">Federal Reserve Board</a>
+                <p>Datos oficiales de la FED.</p>
+                <span class="tag">USA</span>
+            </div>
+            <div class="link-card">
+                <a href="https://www.bea.gov/" target="_blank">BEA</a>
+                <p>Bureau of Economic Analysis. Datos de PIB de EE.UU.</p>
+                <span class="tag">USA</span>
+            </div>
+            <div class="link-card">
+                <a href="https://www.bls.gov/" target="_blank">BLS</a>
+                <p>Bureau of Labor Statistics. Datos de empleo e inflación EE.UU.</p>
+                <span class="tag">Laboral</span>
+            </div>
+            <div class="link-card">
+                <a href="https://sdw.ecb.europa.eu/" target="_blank">ECB Statistical Warehouse</a>
+                <p>Datos del Banco Central Europeo.</p>
+                <span class="tag">Europa</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Colección personal de recursos. Actualizado 2025.</p>
+    </footer>
+</div>
+
+<script>
+    // Lógica del Buscador
+    const searchInput = document.getElementById('searchBar');
+    const cards = document.querySelectorAll('.link-card');
+    const categories = document.querySelectorAll('.category-section');
+
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            if (text.includes(term)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Ocultar categorías vacías
+        categories.forEach(cat => {
+            const visibleCards = cat.querySelectorAll('.link-card:not(.hidden)');
+            if (visibleCards.length === 0) {
+                cat.classList.add('hidden');
+            } else {
+                cat.classList.remove('hidden');
+            }
+        });
+    });
+
+    // Lógica Modo Oscuro
+    function toggleTheme() {
+        const body = document.body;
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+        }
+    }
+    
+    // Auto-detectar preferencia de sistema
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.setAttribute('data-theme', 'dark');
+    }
+</script>
+
+</body>
+</html>

@@ -16,29 +16,29 @@ Una colección curada y centralizada de recursos digitales esenciales para inves
 
 ## 🗂️ Contenido del Repositorio
 
-[cite_start]La lista de recursos ha sido seleccionada pensando en la carrera de economía y trabajos de investigación[cite: 1, 78], abarcando:
+La lista de recursos ha sido seleccionada pensando en la carrera de economía y trabajos de investigación, abarcando:
 
 ### 🇵🇪 Datos Perú
 Fuentes oficiales y microdatos nacionales:
-* [cite_start]**BCRP:** Estadísticas monetarias y series históricas[cite: 18, 19].
-* [cite_start]**INEI:** Microdatos, ENAHO y censos[cite: 111, 113].
-* [cite_start]**Reguladores:** SBS, SMV y ministerios[cite: 18, 55].
+* **BCRP:** Estadísticas monetarias y series históricas.
+* **INEI:** Microdatos, ENAHO y censos.
+* **Reguladores:** SBS, SMV y ministerios.
 
 ### 🌍 Bases de Datos Globales
 Los principales repositorios de data macroeconómica:
-* [cite_start]**FRED (St. Louis Fed) & BEA**[cite: 7, 12].
-* [cite_start]**Banco Mundial & FMI**[cite: 17, 123].
-* [cite_start]**Penn World Table (PWT):** Para comparaciones de productividad internacional[cite: 13].
+* **FRED (St. Louis Fed) & BEA**.
+* **Banco Mundial & FMI**.
+* **Penn World Table (PWT):** Para comparaciones de productividad internacional.
 
 ### 💻 Econometría y Ciencia de Datos
 Herramientas para el economista moderno:
-* [cite_start]**Python for Finance:** Librerías y *cookbooks*[cite: 35, 52].
-* [cite_start]**Forecasting:** Recursos de Rob Hyndman y series de tiempo[cite: 51].
-* [cite_start]**Econometría:** Guías de QuantEcon y repositorios de GitHub[cite: 26, 29].
+* **Python for Finance:** Librerías y *cookbooks*.
+* **Forecasting:** Recursos de Rob Hyndman y series de tiempo.
+* **Econometría:** Guías de QuantEcon y repositorios de GitHub.
 
 ### 📚 Investigación y Finanzas
-* [cite_start]**Papers:** NBER, RePEc, SSRN[cite: 24, 38].
-* [cite_start]**Finanzas:** Datos de mercado, factores de Fama-French y volatilidad[cite: 56, 67].
+* **Papers:** NBER, RePEc, SSRN.
+* **Finanzas:** Datos de mercado, factores de Fama-French y volatilidad.
 
 ## 🛠️ Cómo agregar nuevos enlaces
 
